@@ -1,67 +1,98 @@
 paths:
-  static: public
   uploads: public/uploads
-
-timezone: Europe/Berlin
-
-markdown:
-  engine: commonmark
-  options:
-    gfm: true
-
+  static: public
 collections_config:
   blog:
     path: src/content/blog
     name: Blog
     icon: article
-    url: '/blog/[slug]/'
-    create:
-      path: '[relative_base_path]/{title|slugify}.md'
-    add_options:
-      - name: Neuer Blogbeitrag
+    url: /blog/[slug]/
+    disable_url: false
     sort:
       key: pubDate
       order: desc
-
+    add_options:
+      - name: Neuer Blogbeitrag
+    create:
+      path: '[relative_base_path]/{title|slugify}.md'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   team:
     path: src/content/team
     name: Team
     icon: people
-    create:
-      path: '[relative_base_path]/{name|slugify}.md'
-    add_options:
-      - name: Neues Teammitglied
+    disable_url: false
     sort:
       key: order
       order: asc
-
+    add_options:
+      - name: Neues Teammitglied
+    create:
+      path: '[relative_base_path]/{name|slugify}.md'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   pages:
     path: src/content/pages
     name: Seiten
     icon: description
-    url: '/[slug]/'
-    create:
-      path: '[relative_base_path]/{title|slugify}.md'
+    url: /[slug]/
+    disable_url: false
     add_options:
       - name: Neue Seite
-
+    create:
+      path: '[relative_base_path]/{title|slugify}.md'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 collection_groups:
   - heading: Inhalte
     collections:
       - blog
       - team
       - pages
-
+  - heading: New Collections
+    collections:
+      - pages_1
+  - heading: New Collections
+    collections: []
 _inputs:
   pubDate:
     type: date
+    cascade: true
   updatedDate:
     type: date
+    cascade: true
   heroImage:
     type: image
+    cascade: true
   photo:
     type: image
+    cascade: true
   draft:
     type: switch
+    cascade: true
   tags:
     type: array
+    cascade: true
+timezone: Europe/Berlin
+markdown:
+  engine: commonmark
+  options:
+    xhtml: false
+    breaks: false
+    linkify: false
+    typographer: false
+    spaced_lists: false
+    sentence_per_line: false
+    gfm: true
+    code_block_fences: '```'
+    escape_snippets_in_code_blocks: false
+    treat_indentation_as_code: false
+    table: false
+    strikethrough: false
+    subscript: false
+    superscript: false
+    heading_ids: false
+    attributes: false
