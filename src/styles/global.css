@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Hier kannst du dein Theme (Farben, Fonts) für NEUBLCK definieren.
+   Tailwind v4 wird über @theme konfiguriert – Beispiel:
+
+@theme {
+  --color-brand: #000000;
+  --font-sans: "Inter", sans-serif;
+}
+*/
