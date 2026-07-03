@@ -1,13 +1,66 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+
+// Den Eintrag "home" aus der Sammlung "pages" laden:
+const home = await getEntry("pages", "home");
+if (!home) {
+  throw new Error(
+    "Inhalt 'home' nicht gefunden – existiert src/content/pages/home.md?",
+  );
+}
+const { hero } = home.data;
+
+// Text am markierten Ausschnitt in "davor" und "danach" zerlegen:
+const [before, after] =
+  hero.highlight && hero.text.includes(hero.highlight)
+    ? hero.text.split(hero.highlight)
+    : [hero.text, null];
 ---
 
-<BaseLayout
-  title="NEUBLCK – Startseite"
-  description="Werbeagentur aus Düren und Köln Seit 2003 ✅ NEUBLCK Full-Service Digitalagentur & Internetagentur bieten wir kreative Werbung, digitale Entwicklung und strategisches Marketing aus einer Hand."
->
-  <main class="min-h-screen flex flex-col items-center justify-center gap-4">
-    <i class="fa-solid fa-bolt text-yellow-400 text-4xl"></i>
-    <h1 class="text-5xl font-bold tracking-tight">Hallo NEUBLCK 👋</h1>
+<BaseLayout title="NEUBLCK – Startseite" description="{home.data.description}">
+  <header class="flex items-center justify-between px-6 py-5 md:px-12">
+    <span class="text-2xl font-extrabold tracking-tight text-ink">_NEUBLCK</span
+    >
+    <button
+      class="flex items-center gap-2 rounded bg-brand px-5 py-2 font-semibold text-white"
+      ><i class="fa-solid fa-bars"></i> Menü</button
+    >
+  </header>
+
+  <main class="mx-auto flex max-w-4xl flex-col gap-10 px-6 py-16 md:py-24">
+    <div class="flex items-start gap-6">
+      <i
+        class="fa-solid fa-arrow-right mt-2 hidden text-4xl text-neutral-300 md:block"
+      ></i>
+      <p class="text-2xl leading-relaxed text-ink md:text-3xl">
+        {before}
+        {
+          after !== null && (
+            <Fragment>
+              <mark class="bg-highlighter box-decoration-clone px-1 text-ink">
+                {hero.highlight}
+              </mark>
+            </Fragment>
+          )
+        }
+        {after}
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-4">
+      {
+        hero.buttons.map((btn) => (
+          <a
+            href={btn.href}
+            class={btn.style === 'primary' 
+            ? 'inline-flex items-center gap-3 bg-brand px-6 py-4 font-bold text-white'
+            : 'inline-flex items-center gap-3 border-2 border-ink px-6 py-4 font-bold text-ink'}
+          >
+            <i class="fa-solid fa-arrow-right" /> {btn.label}
+          </a>
+        ))
+      }
+    </div>
   </main>
 </BaseLayout>
