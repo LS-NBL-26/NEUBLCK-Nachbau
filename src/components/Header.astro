@@ -1,0 +1,32 @@
+---
+import navigation from "../data/navigation.json";
+const { menu_items = [] } = navigation;
+---
+
+<header class="header">
+  <a href="/" class="logo">_NEUBLCK</a>
+  <button class="menu-btn" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
+    <i class="fa-solid fa-bars"></i> Menü
+  </button>
+</header>
+
+<nav id="site-menu" class="menu" hidden>
+  {menu_items.map((item) => (
+    <a class="menu_link" href={item.href}>{item.label}</a>
+  ))}
+</nav>
+
+<script>
+  const btn = document.querySelector("[data-menu-toggle]");
+  const menu = document.getElementById("site-menu");
+  btn?.addEventListener("click", () => {
+    const isHidden = menu?.hasAttribute("hidden");
+    if (isHidden) {
+      menu?.removeAttribute("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      menu?.setAttribute("hidden", "");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

@@ -2,16 +2,20 @@
    1) Design-Tokens: Farben an EINER Stelle
    ============================================ */
 :root {
-  --brand: #ff0050;      /* Pink */
-  --ink: #31383e;        /* Dunkles Anthrazit (Text) */
-  --highlight: #33cccc80; /* Türkis, 50 % Deckkraft */
+  --brand: #ff0050;
+  /* Pink */
+  --ink: #31383e;
+  /* Dunkles Anthrazit (Text) */
+  --highlight: #33cccc80;
+  /* Türkis, 50 % Deckkraft */
 }
 
 /* ============================================
    2) Basis / Reset
    ============================================ */
 * {
-  box-sizing: border-box;   /* Padding zählt zur Breite – rechnet sich intuitiver */
+  box-sizing: border-box;
+  /* Padding zählt zur Breite – rechnet sich intuitiver */
 }
 
 body {
@@ -65,11 +69,28 @@ mark {
 }
 
 /* ============================================
-   4) Introtext-Section
+   4) Menü (Header-Navigation)
+   ============================================ */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.menu_link {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   5) Introtext-Section
    ============================================ */
 .introtext {
   max-width: 56rem;
-  margin: 0 auto;          /* zentriert den Block */
+  margin: 0 auto;
+  /* zentriert den Block */
   padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -98,7 +119,7 @@ mark {
 }
 
 /* ============================================
-   5) Buttons
+   6) Buttons
    ============================================ */
 .buttons {
   display: flex;

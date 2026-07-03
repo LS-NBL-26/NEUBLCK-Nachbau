@@ -1,0 +1,7 @@
+{
+  "menu_items": [
+    { "label": "Leistungen", "href": "/leistungen/" },
+    { "label": "Neuromarketing", "href": "/neuromarketing/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ]
+}

@@ -21,6 +21,10 @@ collection_groups:
     collections:
       - pages
 
+data_config:
+  navigation:
+    path: src/data/navigation.json
+
 _structures:
   page_sections:
     id_key: type
@@ -31,6 +35,21 @@ _structures:
           type: introtext
           text: "<p>Neuer Introtext.</p>"
           buttons: []
+  buttons:
+    values:
+      - label: Button
+        icon: smart_button
+        value:
+          label: Neuer Button
+          href: /
+          style: primary
+  nav_item:
+    values:
+      - label: Menüpunkt
+        icon: link
+        value:
+          label: Neuer Menüpunkt
+          href: /
 
 _inputs:
   sections:
@@ -38,6 +57,11 @@ _inputs:
     label: Abschnitte
     options:
       structures: _structures.page_sections
+  menu_items:
+    type: array
+    label: Menüpunkte
+    options:
+      structures: _structures.nav_item
   text:
     type: html
     label: Fließtext
@@ -50,15 +74,17 @@ _inputs:
   buttons:
     type: array
     label: Buttons
+    options:
+      structures: _structures.buttons
   label:
     type: text
-    label: Button-Beschriftung
+    label: Beschriftung
   href:
     type: text
-    label: Button-Link
+    label: Link
   style:
     type: select
-    label: Button-Stil
+    label: Stil
     options:
       values:
         - primary
