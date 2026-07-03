@@ -7,7 +7,7 @@ collections_config:
     path: src/content/pages
     name: Seiten
     icon: description
-    url: /[slug]/
+    url: /
     add_options:
       - name: Neue Seite
     create:
