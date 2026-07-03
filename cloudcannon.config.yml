@@ -1,100 +1,55 @@
 paths:
   uploads: public/uploads
   static: public
+
 collections_config:
-  blog:
-    path: src/content/blog
-    name: Blog
-    icon: article
-    url: /blog/[slug]/
-    disable_url: false
-    sort:
-      key: pubDate
-      order: desc
-    add_options:
-      - name: Neuer Blogbeitrag
-    create:
-      path: '[relative_base_path]/{title|slugify}.md'
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
-  team:
-    path: src/content/team
-    name: Team
-    icon: people
-    disable_url: false
-    sort:
-      key: order
-      order: asc
-    add_options:
-      - name: Neues Teammitglied
-    create:
-      path: '[relative_base_path]/{name|slugify}.md'
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
   pages:
     path: src/content/pages
     name: Seiten
     icon: description
     url: /[slug]/
-    disable_url: false
     add_options:
       - name: Neue Seite
     create:
       path: '[relative_base_path]/{title|slugify}.md'
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
+
 collection_groups:
   - heading: Inhalte
     collections:
-      - blog
-      - team
       - pages
-  - heading: New Collections
-    collections:
-      - pages_1
-  - heading: New Collections
-    collections: []
-  - heading: New Collections
-    collections: []
+
 _inputs:
-  pubDate:
-    type: date
-    cascade: true
-  updatedDate:
-    type: date
-    cascade: true
-  heroImage:
-    type: image
-    cascade: true
-  photo:
-    type: image
-    cascade: true
-  draft:
-    type: switch
-    cascade: true
-  tags:
+  # --- Felder deiner Hero-Section ---
+  text:
+    type: textarea
+    label: Fließtext
+    comment: Der Absatz der Section.
+  highlight:
+    type: text
+    label: Markierter Ausschnitt
+    comment: Muss WORTGENAU so im Fließtext vorkommen – wird türkis markiert.
+  buttons:
     type: array
-    cascade: true
+    label: Buttons
+  label:
+    type: text
+    label: Button-Beschriftung
+  href:
+    type: text
+    label: Button-Link
+    comment: Zieladresse, z. B. /leistungen/
+  style:
+    type: select
+    label: Button-Stil
+    options:
+      values:
+        - primary
+        - secondary
+    comment: primary = pink gefüllt, secondary = weiß mit Umriss.
+
 timezone: Europe/Berlin
+
 markdown:
   engine: commonmark
   options:
-    xhtml: false
-    breaks: false
-    linkify: false
-    typographer: false
-    spaced_lists: false
-    sentence_per_line: false
     gfm: true
-    code_block_fences: '```'
-    escape_snippets_in_code_blocks: false
-    treat_indentation_as_code: false
-    table: false
-    strikethrough: false
-    subscript: false
-    superscript: false
-    heading_ids: false
-    attributes: false
