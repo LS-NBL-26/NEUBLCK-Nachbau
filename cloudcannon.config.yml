@@ -21,7 +21,23 @@ collection_groups:
     collections:
       - pages
 
+_structures:
+  page_sections:
+    id_key: type
+    values:
+      - label: Introtext
+        icon: notes
+        value:
+          type: introtext
+          text: "<p>Neuer Introtext.</p>"
+          buttons: []
+
 _inputs:
+  sections:
+    type: array
+    label: Abschnitte
+    options:
+      structures: _structures.page_sections
   text:
     type: html
     label: Fließtext

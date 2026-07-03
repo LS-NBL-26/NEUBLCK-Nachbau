@@ -65,9 +65,9 @@ mark {
 }
 
 /* ============================================
-   4) Hero-Section
+   4) Introtext-Section
    ============================================ */
-.hero {
+.introtext {
   max-width: 56rem;
   margin: 0 auto;          /* zentriert den Block */
   padding: 4rem 1.5rem;
@@ -76,24 +76,24 @@ mark {
   gap: 2.5rem;
 }
 
-.hero_row {
+.introtext_row {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
 }
 
-.hero_arrow {
+.introtext_arrow {
   color: #d4d4d4;
   font-size: 2rem;
   margin-top: 0.4rem;
 }
 
-.hero_text {
+.introtext_text {
   font-size: 1.6rem;
   line-height: 1.5;
 }
 
-.hero_text p {
+.introtext_text p {
   margin: 0;
 }
 

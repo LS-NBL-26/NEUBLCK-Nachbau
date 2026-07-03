@@ -1,0 +1,17 @@
+---
+import Button from "./Button.astro";
+
+const { text, buttons = [] } = Astro.props;
+const html = text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
+---
+
+<section class="introtext">
+    <div class="introtext_row">
+        <i class="fa-solid fa-arrow-right introtext_arrow"></i>
+        <div class="introtext_text" set:html={html} />
+    </div>
+
+    <div class="buttons">
+        {buttons.map((btn: any) => <Button {...btn} />)}
+    </div>
+</section>

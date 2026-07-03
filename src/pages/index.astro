@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import IntroText from "../components/IntroText.astro";
+
+// Zuordnung: Typ-Name aus home.md → Komponente
+const sectionComponents = {
+  introtext: IntroText,
+};
 
 const home = await getEntry("pages", "home");
 if (!home) {
@@ -8,10 +14,7 @@ if (!home) {
     "Inhalt 'home' nicht gefunden – existiert src/content/pages/home.md?",
   );
 }
-const { hero } = home.data;
-
-// Unterstrichenes (<u>) für die Anzeige in semantisches <mark> umwandeln:
-const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
+const { sections } = home.data;
 ---
 
 <BaseLayout title="NEUBLCK – Startseite" description={home.data.description}>
@@ -22,34 +25,12 @@ const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
     </button>
   </header>
 
-  <main class="hero">
-    <div class="hero_row">
-      <i class="fa-solid fa-arrow-right hero_arrow"></i>
-      <div
-        class="hero_text"
-        data-editable="text"
-        data-prop="hero.text"
-        data-type="block"
-        set:html={heroHtml}
-      />
-    </div>
-
-    <div class="buttons">
-      {
-        hero.buttons.map((btn) => (
-          <a
-            href={btn.href}
-            class={
-              btn.style === "primary"
-                ? "btn btn-primary"
-                : "btn btn-secondary"
-            }
-          >
-            <i class="fa-solid fa-arrow-right" />
-            {btn.label}
-          </a>
-        ))
-      }
-    </div>
+  <main>
+    {
+      sections.map((section) => {
+        const Component = sectionComponents[section.type];
+        return Component ? <Component {...section} /> : null;
+      })
+    }
   </main>
 </BaseLayout>
