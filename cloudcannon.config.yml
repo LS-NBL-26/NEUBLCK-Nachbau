@@ -3,11 +3,14 @@ paths:
   static: public
 
 collections_config:
-  pages:
+    pages:
     path: src/content/pages
     name: Seiten
     icon: description
     url: /
+    _enabled_editors:
+      - visual
+      - data
     add_options:
       - name: Neue Seite
     create:

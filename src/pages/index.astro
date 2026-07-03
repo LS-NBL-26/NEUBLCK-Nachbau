@@ -36,14 +36,19 @@ const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
 
     <div class="buttons">
       {
-        hero.buttons.map((btn) => (
+        hero.buttons.map((btn, i) => (
           <a
             href={btn.href}
             class={
-              btn.style === "primary" ? "btn btn-primary" : "btn btn-secondary"
+              btn.style === "primary"
+                ? "btn btn-primary"
+                : "btn btn-secondary"
             }
           >
-            <i class="fa-solid fa-arrow-right" /> {btn.label}
+            <i class="fa-solid fa-arrow-right" />
+            <editable-text data-prop={`hero.buttons[${i}].label`}>
+              {btn.label}
+            </editable-text>
           </a>
         ))
       }
