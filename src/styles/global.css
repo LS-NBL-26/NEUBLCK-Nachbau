@@ -1,7 +1,127 @@
-@import "tailwindcss";
+/* ============================================
+   1) Design-Tokens: Farben an EINER Stelle
+   ============================================ */
+:root {
+  --brand: #ff0050;      /* Pink */
+  --ink: #31383e;        /* Dunkles Anthrazit (Text) */
+  --highlight: #33cccc80; /* Türkis, 50 % Deckkraft */
+}
 
-@theme {
-    --color-brand: #ff0050;
-    --color-ink: #31383e;
-    --color-highlighter: #33cccc80;
+/* ============================================
+   2) Basis / Reset
+   ============================================ */
+* {
+  box-sizing: border-box;   /* Padding zählt zur Breite – rechnet sich intuitiver */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+mark {
+  background-color: var(--highlight);
+  color: inherit;
+  padding: 0 0.15em;
+}
+
+/* ============================================
+   3) Kopfzeile
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ============================================
+   4) Hero-Section
+   ============================================ */
+.hero {
+  max-width: 56rem;
+  margin: 0 auto;          /* zentriert den Block */
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.hero_row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.hero_arrow {
+  color: #d4d4d4;
+  font-size: 2rem;
+  margin-top: 0.4rem;
+}
+
+.hero_text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.hero_text p {
+  margin: 0;
+}
+
+/* ============================================
+   5) Buttons
+   ============================================ */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--ink);
 }
