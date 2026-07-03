@@ -57,6 +57,8 @@ collection_groups:
       - pages_1
   - heading: New Collections
     collections: []
+  - heading: New Collections
+    collections: []
 _inputs:
   pubDate:
     type: date
