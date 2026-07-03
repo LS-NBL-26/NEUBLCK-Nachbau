@@ -1,0 +1,13 @@
+---
+import footer from "../data/footer.json";
+const { copyright = "", links = [] } = footer;
+---
+
+<footer class="footer">
+  <nav class="footer_links">
+    {links.map((item) => (
+      <a class="footer_link" href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+  <p class="footer_copyright">{copyright}</p>
+</footer>

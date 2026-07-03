@@ -24,6 +24,8 @@ collection_groups:
 data_config:
   navigation:
     path: src/data/navigation.json
+  footer:
+    path: src/data/footer.json
 
 _structures:
   page_sections:
@@ -89,6 +91,14 @@ _inputs:
       values:
         - primary
         - secondary
+  links:
+    type: array
+    label: Footer-Links
+    options:
+      structures: _structures.nav_item
+  copyright:
+    type: text
+    label: Copyright-Text
 
 _editables:
   block:

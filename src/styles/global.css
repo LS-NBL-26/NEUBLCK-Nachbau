@@ -1,5 +1,5 @@
 /* ============================================
-   1) Design-Tokens: Farben an EINER Stelle
+   Design-Tokens
    ============================================ */
 :root {
   --brand: #ff0050;
@@ -11,7 +11,7 @@
 }
 
 /* ============================================
-   2) Basis / Reset
+   Basis / Reset
    ============================================ */
 * {
   box-sizing: border-box;
@@ -39,7 +39,7 @@ mark {
 }
 
 /* ============================================
-   3) Kopfzeile
+   Kopfzeile
    ============================================ */
 .header {
   display: flex;
@@ -85,7 +85,34 @@ mark {
 }
 
 /* ============================================
-   5) Introtext-Section
+   Footer
+   ============================================ */
+.footer {
+  border-top: 1px solid #eee;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer_links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer_link {
+  font-weight: 600;
+}
+
+.footer_copyright {
+  margin: 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Introtext-Section
    ============================================ */
 .introtext {
   max-width: 56rem;
@@ -119,7 +146,7 @@ mark {
 }
 
 /* ============================================
-   6) Buttons
+   Buttons
    ============================================ */
 .buttons {
   display: flex;
