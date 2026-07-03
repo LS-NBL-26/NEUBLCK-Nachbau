@@ -1,0 +1,33 @@
+---
+import { SEO } from "astro-seo";
+import "@fortawesome/fontawesome-free/css/all.min.css"; // Font Awesome 7 (lokal)
+import "../styles/global.css";
+
+const {
+    title = "NEUBLCK",
+    description = "NEUBLCK – Startseite",
+} = Astro.props;
+---
+
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/siteicon.png" />
+        <title>{title}</title>
+        <SEO
+            title={title}
+            description={description}
+            openGraph={{
+                basic: {
+                    title: title,
+                    type: "website",
+                    image: "/siteicon.png",
+                },
+            }}
+        />
+    </head>
+    <body class="bg-neutral-900 text-white min-h-screen">
+        <slot />
+    </body>
+</html>
