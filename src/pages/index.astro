@@ -26,7 +26,7 @@ const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
     <div class="hero_row">
       <i class="fa-solid fa-arrow-right hero_arrow"></i>
       <div
-        class="hero__text"
+        class="hero_text"
         data-editable="text"
         data-prop="hero.text"
         data-type="block"
@@ -36,7 +36,7 @@ const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
 
     <div class="buttons">
       {
-        hero.buttons.map((btn, i) => (
+        hero.buttons.map((btn) => (
           <a
             href={btn.href}
             class={
@@ -46,9 +46,7 @@ const heroHtml = hero.text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
             }
           >
             <i class="fa-solid fa-arrow-right" />
-            <editable-text data-prop={`hero.buttons[${i}].label`}>
-              {btn.label}
-            </editable-text>
+            {btn.label}
           </a>
         ))
       }
