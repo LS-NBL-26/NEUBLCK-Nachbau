@@ -15,17 +15,23 @@ collections_config:
       - name: Neue Seite
     create:
       path: '[relative_base_path]/{title|slugify}.md'
+  data:
+    path: src/data
+    name: Globale Daten
+    icon: settings
+    disable_add: true
+    disable_add_folder: true
+    disable_url: true
+    _enabled_editors:
+      - data
 
 collection_groups:
   - heading: Inhalte
     collections:
       - pages
-
-data_config:
-  navigation:
-    path: src/data/navigation.json
-  footer:
-    path: src/data/footer.json
+  - heading: Global
+    collections:
+      - data
 
 _structures:
   page_sections:
