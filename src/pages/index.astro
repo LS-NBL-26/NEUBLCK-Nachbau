@@ -4,7 +4,7 @@ import { getEntry } from "astro:content";
 import IntroText from "../components/IntroText.astro";
 
 // Zuordnung: Typ-Name aus home.md → Komponente
-const sectionComponents = {
+const sectionComponents: Record<string, any> = {
   introtext: IntroText,
 };
 
@@ -18,11 +18,24 @@ const { sections } = home.data;
 ---
 
 <BaseLayout title="NEUBLCK – Startseite" description={home.data.description}>
-  <main>
+  <main
+    data-editable="array"
+    data-prop="sections"
+    data-id-key="type"
+    data-component-key="type"
+  >
     {
-      sections.map((section) => {
+      sections.map((section: any) => {
         const Component = sectionComponents[section.type];
-        return Component ? <Component {...section} /> : null;
+        return Component ? (
+          <div
+            data-editable="array-item"
+            data-id={section.type}
+            data-component={section.type}
+          >
+            <Component {...section} />
+          </div>
+        ) : null;
       })
     }
   </main>

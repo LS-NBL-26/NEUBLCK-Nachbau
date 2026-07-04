@@ -8,10 +8,10 @@ const html = text.replace(/<(\/?)u\b[^>]*>/g, "<$1mark>");
 <section class="introtext">
     <div class="introtext_row">
         <i class="fa-solid fa-arrow-right introtext_arrow"></i>
-        <div class="introtext_text" set:html={html} />
+        <div class="introtext_text" data-editable="text" data-prop="text" set:html={html} />
     </div>
 
-    <div class="buttons">
-        {buttons.map((btn: any) => <Button {...btn} />)}
+    <div class="buttons" data-editable="array" data-prop="buttons">
+        {buttons.map((btn: any) => <Button {...btn} data-editable="array-item" />)}
     </div>
 </section>

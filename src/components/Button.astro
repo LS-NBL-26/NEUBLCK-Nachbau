@@ -1,11 +1,12 @@
 ---
 // Ein einzelner Button. Bekommt label, href und style als Props:
-const { label, href, style = "primary" } = Astro.props;
+const { label, href, style = "primary", ...rest } = Astro.props;
 ---
 
 <a
     href={href}
     class={style === "primary" ? "btn btn-primary" : "btn btn-secondary"}
+    {...rest}
 >
     <i class="fa-solid fa-arrow-right"></i>
     {label}
