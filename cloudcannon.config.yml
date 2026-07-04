@@ -58,6 +58,30 @@ _structures:
         value:
           label: Neuer Menüpunkt
           href: /
+          children: []
+  nav_leaf:
+    values:
+      - label: Unterpunkt
+        icon: link
+        value:
+          label: Neuer Unterpunkt
+          href: /
+  contact_item:
+    values:
+      - label: Kontakt-Eintrag
+        icon: contact_phone
+        value:
+          label: "+49 000 000 00 00"
+          href: "tel:+49000000000"
+          icon: fa-solid fa-phone
+  social_item:
+    values:
+      - label: Social-Media-Eintrag
+        icon: share
+        value:
+          label: LinkedIn
+          href: "https://"
+          icon: fa-brands fa-linkedin
 
 _inputs:
   sections:
@@ -70,6 +94,25 @@ _inputs:
     label: Menüpunkte
     options:
       structures: _structures.nav_item
+  children:
+    type: array
+    label: Unterpunkte
+    options:
+      structures: _structures.nav_leaf
+  contact:
+    type: array
+    label: Kontakt
+    options:
+      structures: _structures.contact_item
+  social:
+    type: array
+    label: Social Media
+    options:
+      structures: _structures.social_item
+  icon:
+    type: text
+    label: Icon-Klasse
+    comment: Font-Awesome-Klasse, z. B. "fa-solid fa-phone"
   text:
     type: html
     label: Fließtext
