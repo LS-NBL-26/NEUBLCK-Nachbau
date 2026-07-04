@@ -1,13 +1,16 @@
+@import url("fonts.css");
+
 /* ============================================
    Design-Tokens
    ============================================ */
 :root {
   --brand: #ff0050;
-  /* Pink */
   --ink: #31383e;
-  /* Dunkles Anthrazit (Text) */
+  --mittelblau: #689cd3;
+  --tuerkis: #33cccc;
   --highlight: #33cccc80;
-  /* Türkis, 50 % Deckkraft */
+  --highlight-rosa: #ff005033;
+  --light-grey: #f2f2f2;
 }
 
 /* ============================================
@@ -19,69 +22,272 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
   background: #fff;
   color: var(--ink);
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
+  font-family: "Neo Sans", Sans-serif;
+  line-height: 1.6em;
+}
+
+main {
+  padding-top: 129px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  font-family: inherit;
 }
 
 mark {
-  background-color: var(--highlight);
+  position: relative;
   color: inherit;
-  padding: 0 0.15em;
+  padding: 0.08em 0.08em;
+  background-image: linear-gradient(
+    var(--highlight),
+    var(--highlight)
+  );
+  background-repeat: no-repeat;
+  background-position: left 85%;
+  background-size: 100% 45%;
+  background-color: transparent;
 }
 
 /* ============================================
    Kopfzeile
    ============================================ */
 .header {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
+  justify-content: center;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.5rem;
+  max-width: 1400px;
+  width: 100%;
+  padding: 30px 25px;
+  top: 0;
+  background-color: white;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
 }
 
-.menu-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--brand);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
-  font-size: 1rem;
+.logo_img {
+  height: 57px;
+  max-width: 285px;
+  width: 100%;
+  display: block;
+}
+
+.header .btn {
+  border: 2px solid var(--brand);
   cursor: pointer;
 }
 
 /* ============================================
-   4) Menü (Header-Navigation)
+   Menü (Header-Navigation)
    ============================================ */
-.menu {
+.menu-panel-container {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem 2rem;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: transparent;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: all;
+  background-image: radial-gradient(at top left, #689cd3eb 22%, #f2295beb 83%);
+}
+
+.menu-panel-container[hidden] {
+  display: none;
+}
+
+.menu-panel {
+  background: #fff;
+  width: 570px;
+  max-width: 100%;
+  padding: 20px 0px 50px 50px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.menu-panel-content {
+  margin-top: 50px;
+  padding: 20px 100px 0 0;
+}
+
+.menu-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+  display: flex;
+  background: none;
+  border: none;
+  font-size: 50px;
+  color: var(--brand);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.accordion {
+  text-align: left;
+}
+
+.accordion ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion_item {
   border-bottom: 1px solid #eee;
 }
 
-.menu_link {
+.accordion_link,
+.accordion_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-family: "Neo Sans", Sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.2em;
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+  border-color: var(--light-grey);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion_icon {
+  transition: transform 0.2s;
+  font-weight: 900;
+  line-height: 1em;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.accordion_toggle[aria-expanded="true"] .accordion_icon {
+  transform: rotate(180deg);
+}
+
+.accordion_submenu {
+  padding: 0 0 1rem 1rem;
+}
+
+.accordion_submenu li {
+  padding: 20px 30px 17px 30px;
+}
+
+.accordion_submenu a {
+  font-weight: 500;
+  color: var(--ink);
+  font-family: "Neo Sans", Sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.2em;
+  box-sizing: border-box;
+}
+
+.accordion_link span,
+.accordion_toggle span,
+.accordion_submenu a span,
+.contact-list a span.contact-list-label,
+.social-list a span.social-list-label {
+  position: relative;
+  padding: 0.08em 0.08em;
+  background-image: linear-gradient(
+    var(--highlight-rosa),
+    var(--highlight-rosa)
+  );
+  background-repeat: no-repeat;
+  background-position: left 85%;
+  background-size: 0% 45%;
+  transition: background-size 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion_link:hover span,
+.accordion_toggle:hover span,
+.accordion_submenu a:hover span,
+.contact-list a:hover span.contact-list-label,
+.social-list a:hover span.social-list-label {
+  background-size: 100% 45%;
+}
+
+.contact-list {
+  padding: 40px 0 10px;
+}
+
+.social-list {
+  padding: 20px 0 10px;
+}
+
+.contact-list,
+.social-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list a,
+.social-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  padding-block-end: 13px;
+  font-family: "Neo Sans", Sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1em;
+}
+
+.contact-list a span,
+.social-list a span {
+  padding-inline-end: 2px;
+}
+
+.contact-list a i {
+  font-size: 43px;
+  margin-right: 16px;
+}
+
+.social-list a i {
+  font-size: 49px;
+  margin-right: 10px;
+}
+
+.contact-list i {
+  color: var(--brand);
+}
+
+.social-list i {
+  color: var(--mittelblau);
 }
 
 /* ============================================
@@ -115,7 +321,6 @@ mark {
    Introtext-Section
    ============================================ */
 .introtext {
-  max-width: 56rem;
   margin: 0 auto;
   /* zentriert den Block */
   padding: 4rem 1.5rem;
@@ -127,22 +332,27 @@ mark {
 .introtext_row {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 40px;
 }
 
 .introtext_arrow {
-  color: #d4d4d4;
-  font-size: 2rem;
+  color: var(--light-grey);
+  font-size: 120px;
   margin-top: 0.4rem;
 }
 
 .introtext_text {
-  font-size: 1.6rem;
-  line-height: 1.5;
+  font-size: 34px;
+  line-height: 1.6em;
+  letter-spacing: 0.25px;
 }
 
 .introtext_text p {
   margin: 0;
+}
+
+.introtext .buttons {
+  margin-top: 50px;
 }
 
 /* ============================================
@@ -155,12 +365,49 @@ mark {
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
   padding: 1rem 1.5rem;
   font-weight: 700;
   font-size: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+.btn > span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* CTA-Buttons: schräge Fläche wischt von links rein (Original: uc_btn-5) */
+.btn::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 0;
+  transform: skew(50deg);
+  transform-origin: top left;
+  transition: width 0.4s;
+}
+
+.btn:hover::after {
+  width: 200%;
+}
+
+.btn:hover {
+  color: #fff;
+  box-shadow:
+    rgba(255, 0, 80, 0.4) 5px 5px,
+    rgba(255, 0, 80, 0.3) 10px 10px,
+    rgba(255, 0, 80, 0.2) 15px 15px;
 }
 
 .btn-primary {
@@ -168,8 +415,33 @@ mark {
   color: #fff;
 }
 
+.btn-primary::after {
+  background: var(--brand);
+}
+
 .btn-secondary {
   background: #fff;
   color: var(--ink);
   border: 2px solid var(--ink);
+}
+
+.btn-secondary:hover {
+  border: 2px solid var(--brand);
+}
+
+.btn-secondary::after {
+  background: var(--brand);
+}
+
+.btn span {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1em;
+  letter-spacing: 0em;
+  font-family: 'Neo Sans', sans-serif;
+}
+
+.btn i {
+  font-weight: 900;
+  font-size: 33px;
 }

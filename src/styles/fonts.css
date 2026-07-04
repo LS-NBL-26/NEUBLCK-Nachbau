@@ -1,0 +1,87 @@
+/* ============================================
+   Fonts
+   ============================================ */
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Light Italic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Medium Italic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Bold Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Black.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Black Italic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Ultra.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("/fonts/Neo Sans Std Ultra Italic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

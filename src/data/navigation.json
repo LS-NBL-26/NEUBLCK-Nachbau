@@ -1,7 +1,56 @@
 {
   "menu_items": [
-    { "label": "Leistungen", "href": "/leistungen/" },
-    { "label": "Neuromarketing", "href": "/neuromarketing/" },
-    { "label": "Kontakt", "href": "/kontakt/" }
+    {
+      "label": "Team",
+      "href": "/team/",
+      "children": [
+        { "label": "Jobs", "href": "/team/neublck-jobs/" }
+      ]
+    },
+    {
+      "label": "Neuromarketing",
+      "href": "/neuromarketing/",
+      "children": []
+    },
+    {
+      "label": "Leistungen",
+      "href": "/leistungen/",
+      "children": [
+        { "label": "Online Marketing", "href": "/leistungen/online-marketing-agentur/" },
+        { "label": "Social Media", "href": "/leistungen/social-media-agentur/" },
+        { "label": "Design", "href": "/leistungen/corporate-design-agentur-grafikdesign/" },
+        { "label": "Webdesign", "href": "/leistungen/webdesign-agentur/" },
+        { "label": "Content", "href": "/leistungen/content-marketing-agentur/" },
+        { "label": "Strategie", "href": "/leistungen/strategie/" },
+        { "label": "SEO", "href": "/leistungen/seo-suchmaschinenoptimierung/" },
+        { "label": "Podcast", "href": "/leistungen/podcast/" },
+        { "label": "Radiowerbung", "href": "/leistungen/radiowerbung/" },
+        { "label": "TV-Werbung", "href": "/leistungen/tv-werbung/" }
+      ]
+    },
+    {
+      "label": "Kunden",
+      "href": "/kunden/",
+      "children": []
+    },
+    {
+      "label": "Projekte",
+      "href": "/projekte/",
+      "children": []
+    },
+    {
+      "label": "Blog",
+      "href": "/blog/",
+      "children": []
+    }
+  ],
+  "contact": [
+    { "label": "+49 2421 48071 00", "href": "tel:+4924214807100", "icon": "fa-solid fa-phone" },
+    { "label": "info@neublck.de", "href": "mailto:info@neublck.de", "icon": "fa-solid fa-envelope" }
+  ],
+  "social": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/neublck/", "icon": "fa-brands fa-linkedin" },
+    { "label": "Instagram", "href": "https://www.instagram.com/neublck/", "icon": "fa-brands fa-instagram" },
+    { "label": "Facebook", "href": "https://www.facebook.com/neublck/", "icon": "fa-brands fa-facebook" }
   ]
 }

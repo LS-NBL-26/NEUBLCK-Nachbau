@@ -5,7 +5,7 @@ sections:
   - type: introtext
     text: >-
       <p>Wir sind die Full Service Werbeagentur, Digitalagentur und
-      Kommunikationsagentur aus Düren und Köln. Unsere Expertise:
+      Kommunikations&shy;agentur aus Düren und Köln. Unsere Expertise:
       <u>Neuromarketing für den Mittelstand.</u> Wir entwickeln
       Marketing- und Kommunikationskonzepte, machen Online Marketing,
       Grafikdesign und Corporate Design, Social Media Marketing, emotionale

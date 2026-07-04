@@ -1,0 +1,8 @@
+// @ts-ignore – "inEditorMode" wird von @cloudcannon/editable-regions zur Laufzeit gesetzt
+if (window.inEditorMode) {
+	import("/src/scripts/register-components.js").catch((error) => {
+		console.warn("Registrierung für CloudCannon fehlgeschlagen:", error);
+	});
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJtYXBwaW5ncyI6IjtBQUNBLElBQUksT0FBTyxjQUFjO0NBQ3hCLE9BQU8sb0NBQW9DLENBQUMsT0FBTyxVQUFVO0VBQzVELFFBQVEsS0FBSyxpREFBaUQsS0FBSztDQUNwRSxDQUFDO0FBQ0YiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQmFzZUxheW91dC5hc3Rybz9hc3RybyZ0eXBlPXNjcmlwdCZpbmRleD0wJmxhbmcudHMiXSwidmVyc2lvbiI6Mywic291cmNlc0NvbnRlbnQiOlsiLy8gQHRzLWlnbm9yZSDigJMgXCJpbkVkaXRvck1vZGVcIiB3aXJkIHZvbiBAY2xvdWRjYW5ub24vZWRpdGFibGUtcmVnaW9ucyB6dXIgTGF1ZnplaXQgZ2VzZXR6dFxuaWYgKHdpbmRvdy5pbkVkaXRvck1vZGUpIHtcblx0aW1wb3J0KFwiLi4vc2NyaXB0cy9yZWdpc3Rlci1jb21wb25lbnRzLmpzXCIpLmNhdGNoKChlcnJvcikgPT4ge1xuXHRcdGNvbnNvbGUud2FybihcIlJlZ2lzdHJpZXJ1bmcgZsO8ciBDbG91ZENhbm5vbiBmZWhsZ2VzY2hsYWdlbjpcIiwgZXJyb3IpO1xuXHR9KTtcbn0iXX0=

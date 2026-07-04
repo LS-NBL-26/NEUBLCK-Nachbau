@@ -1,32 +1,126 @@
 ---
 import navigation from "../data/navigation.json";
-const { menu_items = [] } = navigation;
+const { menu_items = [], contact = [], social = [] } = navigation;
 ---
 
 <header class="header">
-  <a href="/" class="logo">_NEUBLCK</a>
-  <button class="menu-btn" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
-    <i class="fa-solid fa-bars"></i> Menü
-  </button>
+  <div class="header-container">
+    <a href="/" class="logo">
+      <img
+        src="/uploads/neublck-logo-2025.webp"
+        alt="Logo der Werbeagentur NEUBLCK"
+        class="logo_img"
+      /></a
+    >
+    <button
+      class="btn btn-primary"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="site-menu"
+    >
+      <span><i class="fas fa-align-left"></i> Menü</span>
+    </button>
+  </div>
 </header>
 
-<nav id="site-menu" class="menu" hidden>
-  {menu_items.map((item) => (
-    <a class="menu_link" href={item.href}>{item.label}</a>
-  ))}
-</nav>
+<div id="site-menu" class="menu-panel-container" hidden>
+  <div class="menu-panel">
+    <button class="menu-close" data-menu-close aria-label="Menü schließen">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
-<script>
-  const btn = document.querySelector("[data-menu-toggle]");
-  const menu = document.getElementById("site-menu");
-  btn?.addEventListener("click", () => {
-    const isHidden = menu?.hasAttribute("hidden");
-    if (isHidden) {
-      menu?.removeAttribute("hidden");
-      btn.setAttribute("aria-expanded", "true");
-    } else {
-      menu?.setAttribute("hidden", "");
-      btn.setAttribute("aria-expanded", "false");
-    }
-  });
-</script>
+    <div class="menu-panel-content">
+      <nav class="accordion">
+        <ul>
+          {
+            menu_items.map((item) => (
+              <li class="accordion_item">
+                {item.children?.length > 0 ? (
+                  <>
+                    <button
+                      class="accordion_toggle"
+                      data-accordion-toggle
+                      aria-expanded="false"
+                    >
+                      <span>{item.label}</span>
+                      <i class="fa-solid fa-chevron-down accordion_icon" />
+                    </button>
+                    <ul class="accordion_submenu" hidden>
+                      {item.children.map((child) => (
+                        <li>
+                          <a href={child.href}>
+                            <span>{child.label}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a class="accordion_link" href={item.href}>
+                    <span>{item.label}</span>
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <ul class="contact-list">
+        {
+          contact.map((c) => (
+            <li>
+              <a href={c.href}>
+                <span class="contact-list-icon"><i class={c.icon} /></span>
+                <span class="contact-list-label">{c.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul class="social-list">
+        {
+          social.map((s) => (
+            <li>
+              <a href={s.href} target="_blank" rel="noopener">
+                <span class="social-list-icon"><i class={s.icon} /></span>
+                <span class="social-list-label">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <script>
+      const btn = document.querySelector("[data-menu-toggle]");
+      const closeBtn = document.querySelector("[data-menu-close]");
+      const menu = document.getElementById("site-menu");
+
+      function openMenu() {
+        menu?.removeAttribute("hidden");
+        btn?.setAttribute("aria-expanded", "true");
+      }
+      function closeMenu() {
+        menu?.setAttribute("hidden", "");
+        btn?.setAttribute("aria-expanded", "false");
+      }
+
+      btn?.addEventListener("click", () => {
+        const isHidden = menu?.hasAttribute("hidden");
+        isHidden ? openMenu() : closeMenu();
+      });
+      closeBtn?.addEventListener("click", closeMenu);
+
+      document.querySelectorAll("[data-accordion-toggle]").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const submenu = toggle.nextElementSibling;
+          const isOpen = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+          submenu?.toggleAttribute("hidden", isOpen);
+        });
+      });
+    </script>
+  </div>
+</div>

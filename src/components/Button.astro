@@ -8,6 +8,8 @@ const { label, href, style = "primary", ...rest } = Astro.props;
     class={style === "primary" ? "btn btn-primary" : "btn btn-secondary"}
     {...rest}
 >
-    <i class="fa-solid fa-arrow-right"></i>
-    {label}
+    <span>
+        <i class="fa-solid fa-arrow-right"></i>
+        {label}
+    </span>
 </a>
