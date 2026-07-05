@@ -1,7 +1,20 @@
 {
-  "copyright": "© 2026 NEUBLCK – Full Service Werbeagentur aus Düren und Köln.",
+  "heading_line": "Wir sind _NEUBLCK",
+  "tagline": "Deine Agentur für spannende Marken.",
+  "image": "/uploads/icon-daumenhoch.webp",
+  "contact": [
+    { "label": "+49 2421 48071 00", "href": "tel:+4924214807100", "icon": "fa-solid fa-phone" },
+    { "label": "info@neublck.de", "href": "mailto:info@neublck.de", "icon": "fa-solid fa-envelope" }
+  ],
+  "social": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/neublck/", "icon": "fa-brands fa-linkedin" },
+    { "label": "Instagram", "href": "https://www.instagram.com/neublck/", "icon": "fa-brands fa-instagram" },
+    { "label": "Facebook", "href": "https://www.facebook.com/neublck/", "icon": "fa-brands fa-facebook" }
+  ],
   "links": [
     { "label": "Impressum", "href": "/impressum/" },
-    { "label": "Datenschutz", "href": "/datenschutz/" }
+    { "label": "Datenschutz", "href": "/datenschutz/" },
+    { "label": "Jobs", "href": "/team/neublck-jobs/" },
+    { "label": "Barrierefreiheit", "href": "/barrierefreiheit/" }
   ]
 }

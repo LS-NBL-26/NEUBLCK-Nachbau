@@ -144,10 +144,22 @@ _inputs:
     type: array
     label: Footer-Links
     options:
-      structures: _structures.nav_item
+      structures: _structures.nav_leaf
   copyright:
     type: text
     label: Copyright-Text
+  heading_line1:
+    type: text
+    label: Überschrift Zeile 1
+  heading_line2:
+    type: text
+    label: Überschrift Zeile 2
+  tagline:
+    type: text
+    label: Untertitel
+  image:
+    type: image
+    label: Bild
 
 _editables:
   block:
