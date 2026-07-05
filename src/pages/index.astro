@@ -2,10 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
 import IntroText from "../components/IntroText.astro";
+import HeroVideo from "../components/HeroVideo.astro";
 
 // Zuordnung: Typ-Name aus home.md → Komponente
 const sectionComponents: Record<string, any> = {
   introtext: IntroText,
+  herovideo: HeroVideo
 };
 
 const home = await getEntry("pages", "home");

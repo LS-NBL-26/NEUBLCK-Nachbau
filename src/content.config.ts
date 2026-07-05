@@ -2,6 +2,14 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+// Schema für EINEN Hero-Video-Baustein:
+const herovideoSection = z.object({
+  type: z.literal("herovideo"),
+  video: z.string(),
+  heading_line: z.string(),
+  words: z.array(z.string()).default([]),
+});
+
 // Schema für EINEN Introtext-Baustein:
 const introtextSection = z.object({
   type: z.literal("introtext"),
@@ -22,7 +30,9 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    sections: z.array(z.discriminatedUnion("type", [introtextSection])).default([]),
+    sections: z
+      .array(z.discriminatedUnion("type", [introtextSection, herovideoSection]))
+      .default([]),
   }),
 });
 

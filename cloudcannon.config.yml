@@ -43,6 +43,15 @@ _structures:
           type: introtext
           text: "<p>Neuer Introtext.</p>"
           buttons: []
+      - label: Hero-Video
+        icon: movie
+        value:
+          type: herovideo
+          video: /uploads/
+          heading_line1: "Neue Überschrift,"
+          heading_line2: "zweite Zeile."
+          words:
+            - Stichwort
   buttons:
     values:
       - label: Button
@@ -160,6 +169,16 @@ _inputs:
   image:
     type: image
     label: Bild
+  video:
+    type: file
+    label: Video
+    comment: Video-Datei aus dem Uploads-Ordner auswählen (z. B. .webm oder .mp4).
+  words:
+    type: array
+    label: Wörter (Schreibmaschinen-Effekt)
+    options:
+      entry:
+        type: text
 
 _editables:
   block:

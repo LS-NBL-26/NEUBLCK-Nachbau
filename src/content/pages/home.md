@@ -2,6 +2,14 @@
 title: Startseite
 description: NEUBLCK – Full Service Werbeagentur aus Düren und Köln.
 sections:
+  - type: herovideo
+    video: /uploads/neublck-introvideo-small.webm
+    heading_line: "Marketing, das ins Gehirn geht."
+    words:
+      - stark
+      - sinnvoll
+      - spürbar
+      - spannend
   - type: introtext
     text: >-
       <p>Wir sind die Full Service Werbeagentur, Digitalagentur und

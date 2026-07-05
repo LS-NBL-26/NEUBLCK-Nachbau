@@ -1,0 +1,31 @@
+---
+const { video, heading_line, words = [] } = Astro.props;
+---
+
+<section class="herovideo">
+  <video autoplay muted loop id="herovideo-webm">
+    <source src={video} type="video/webm" />
+  </video>
+  <div class="herovideo-container">
+    <h1>{heading_line}</h1>
+    <div class="herovideo-typewriter">
+      <p>#</p>
+      <span id="typed-text" data-words={JSON.stringify(words)}></span>
+    </div>
+  </div>
+
+  <script>
+    import Typed from "typed.js";
+
+    const el = document.getElementById("typed-text");
+    const words = JSON.parse(el?.dataset.words || "[]");
+
+    new Typed(el, {
+      strings: words,
+      typeSpeed: 180,
+      backSpeed: 20,
+      backDelay: 1500,
+      loop: true,
+    });
+  </script>
+</section>
