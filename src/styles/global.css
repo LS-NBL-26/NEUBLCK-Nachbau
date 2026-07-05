@@ -337,6 +337,7 @@ mark {
   text-transform: uppercase;
   line-height: 1.1em;
   margin: 0;
+  padding-left: 10px;
 }
 
 .footer-left h4 .heading-word {
@@ -538,18 +539,20 @@ mark {
   gap: 0.75rem;
 }
 
-/* CTA-Buttons: schräge Fläche wischt von links rein (Original: uc_btn-5) */
 .btn::after {
   content: "";
   position: absolute;
   z-index: 1;
   top: 0;
   left: -100%;
-  height: 100%;
+  height: calc(100% + 2px);
+  top: -1px;
   width: 0;
   transform: skew(50deg);
   transform-origin: top left;
   transition: width 0.4s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .btn:hover::after {
