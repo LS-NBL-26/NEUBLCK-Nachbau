@@ -4,4 +4,4 @@ Auf dieser Seite werde ich, Lisa Schäfer, Cloudcannon in Kombination Astro test
 
 &nbsp;
 
-03\.07. - 4h<br />04\.07. - 4h<br />05\.07. - 2h (13:30)
+03\.07. - 4h<br />04\.07. - 4h<br />05\.07. - 3h
